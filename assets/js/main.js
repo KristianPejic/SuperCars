@@ -47,24 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
     let obj = document.getElementById(id);
     let range = end - start;
     let current = start;
-    let increment = range / (duration / 16); // 16ms per frame
+    let increment = range / (duration / 16);
     let timer = setInterval(function () {
       current += increment;
-      obj.textContent = Math.floor(current); // Round to whole number
+      obj.textContent = Math.floor(current);
       if (current >= end) {
-        obj.textContent = end; // Ensure it stops exactly at the end
+        obj.textContent = end;
         clearInterval(timer);
       }
-    }, 16); // Update every 16ms (~60fps)
+    }, 16);
   }
 
   startButton.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default anchor behavior
+    event.preventDefault();
 
-    // Start the animations
-    animateValue("acceleration", 0, 3, 2000); // 3.0s (2 sec)
-    animateValue("power", 0, 419, 2500); // 419 kW (2.5 sec)
-    animateValue("speed", 0, 325, 3000); // 325 km/h (3 sec)
+    animateValue("acceleration", 0, 3, 2000);
+    animateValue("power", 0, 419, 2500);
+    animateValue("speed", 0, 325, 3000);
   });
 });
 
